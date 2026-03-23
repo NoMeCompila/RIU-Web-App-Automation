@@ -5,7 +5,7 @@ import pages.RiuHome;
 
 
 public class RiuHomeTest extends BaseTest {
-    @Test
+    @Test(groups = {"smoke"})
     public void searchRiuHome() throws InterruptedException {
         RiuHome riuHome = new RiuHome(driver);
         riuHome.navigateToRiu();

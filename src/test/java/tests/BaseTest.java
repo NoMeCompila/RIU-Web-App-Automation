@@ -10,14 +10,14 @@ public class BaseTest {
     // Protected para que las clases de prueba puedan usar el driver
     protected WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         // Selenium Manager autoconfigura el ChromeDriver aquí
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
         // Cierra el navegador y mata la sesión al terminar cada prueba
         if (driver != null) {
