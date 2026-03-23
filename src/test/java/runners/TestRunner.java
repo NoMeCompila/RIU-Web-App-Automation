@@ -4,12 +4,13 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-        features = "src/test/resources/features", // Dónde están los .feature
-        glue = "steps",                           // Dónde está el código Java
-        tags = "@smoke",                          // Qué etiquetas ejecutar
+        features = "classpath:features",
+        // AQUÍ ESTÁ LA MAGIA: Le decimos que busque en ambas carpetas
+        glue = {"steps", "hooks"},
+        tags = "@smoke",
         plugin = {
                 "pretty",
-                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" // Integración con Allure
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
         }
 )
 public class TestRunner extends AbstractTestNGCucumberTests {

@@ -1,36 +1,27 @@
 package steps;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pages.RiuHome;
+import utilities.TestContext;
 
 public class RiuSteps {
 
-    WebDriver driver;
-    RiuHome riuHome;
+    private TestContext context;
+    private RiuHome riuHome;
 
-    // Usamos las anotaciones @Before y @After DE CUCUMBER, no de TestNG
-    @Before
-    public void setUp() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        riuHome = new RiuHome(driver);
-    }
-
-    @After
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+    // 1. En el constructor SOLO recibimos y guardamos la "caja" (context)
+    public RiuSteps(TestContext context) {
+        this.context = context;
+        // Eliminamos el new RiuHome(...) de aquí
     }
 
     @Given("que el usuario navega a la pagina principal de RIU")
     public void navegarARiu() {
+        // 2. AHORA SÍ: Hooks ya ejecutó el @Before y abrió Chrome.
+        // Inicializamos la página con el driver activo.
+        riuHome = new RiuHome(context.driver);
         riuHome.navigateToRiu();
     }
 
@@ -46,7 +37,6 @@ public class RiuSteps {
 
     @Then("se deberia mostrar el formulario de registro")
     public void verificarFormulario() throws InterruptedException {
-        // Mantenemos tu Thread.sleep por ahora, luego lo cambiaremos por un Assert real
         Thread.sleep(3000);
     }
 }
