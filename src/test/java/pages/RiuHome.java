@@ -8,6 +8,7 @@ public class RiuHome extends BasePage {
 
     private By menuButton = By.xpath("//div/button[@aria-label='Menú']");
     private By accessButton = By.xpath("//div/button[@aria-label='RIU pro']");
+    private By acceptCiikiesBtn = By.id("onetrust-accept-btn-handler");
 
     public RiuHome(WebDriver driver){
         super(driver);
@@ -15,6 +16,10 @@ public class RiuHome extends BasePage {
 
     public void navigateToRiu(){
         navigateTo("https://www.riu.com/es");
+    }
+
+    public void clickAcceptCookies(){
+        click(this.acceptCiikiesBtn);
     }
 
     public void clickRegister(){
