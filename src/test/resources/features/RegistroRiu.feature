@@ -5,4 +5,5 @@ Feature: Registro de usuario en RIU
     Given que el usuario navega a la pagina principal de RIU
     When el usuario acepta las cookies
     And hace clic en el boton de registrarse
+    And completa el formulario de registro
     Then se deberia mostrar el formulario de registro

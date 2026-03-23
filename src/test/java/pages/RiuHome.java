@@ -6,9 +6,9 @@ import utilities.BasePage;
 
 public class RiuHome extends BasePage {
 
-    private By menuButton = By.xpath("//div/button[@aria-label='Menú']");
-    private By accessButton = By.xpath("//div/button[@aria-label='RIU pro']");
-    private By acceptCiikiesBtn = By.id("onetrust-accept-btn-handler");
+    private final By menuButton = By.xpath("//div/button[@aria-label='Menú']");
+    private final By accessButton = By.xpath("//div/button[@aria-label='RIU pro']");
+    private final By acceptCookiesBtn = By.id("onetrust-accept-btn-handler");
 
     public RiuHome(WebDriver driver){
         super(driver);
@@ -19,10 +19,28 @@ public class RiuHome extends BasePage {
     }
 
     public void clickAcceptCookies(){
-        click(this.acceptCiikiesBtn);
+        click(this.acceptCookiesBtn);
     }
 
     public void clickRegister(){
         click(this.accessButton);
+    }
+
+    // Método para preguntar si es visible
+    public boolean isAcceptCookiesButtonVisible() {
+        return isDisplayed(this.acceptCookiesBtn);
+    }
+
+    // Método para preguntar si es clickeable
+    public boolean isAcceptCookiesButtonClickable() {
+        return isClickable(this.acceptCookiesBtn);
+    }
+
+    public boolean isAccessButtonVisible(){
+        return isDisplayed(this.accessButton);
+    }
+
+    public boolean isAccessbuttonCkickable(){
+        return isClickable(this.acceptCookiesBtn);
     }
 }

@@ -37,12 +37,10 @@ public class BasePage {
         element.sendKeys(text);
     }
 
-    // Obtiene el texto de un elemento
     public String getText(By locator) {
         return find(locator).getText();
     }
 
-    // Verifica si un elemento se está mostrando en la pantalla
     public boolean isDisplayed(By locator) {
         try {
             return find(locator).isDisplayed();
@@ -51,8 +49,25 @@ public class BasePage {
         }
     }
 
-    // Navega a una URL específica
+    // NUEVO: Verifica si el elemento está listo para recibir un clic
+    public boolean isClickable(By locator) {
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(locator));
+            return true;
+        } catch (Exception e) {
+            return false; // Si se acaba el tiempo de espera y no es clickeable, retorna falso
+        }
+    }
+
     public void navigateTo(String url) {
         driver.get(url);
+    }
+
+    public boolean isChecked(By locator){
+        try{
+            return find(locator).isSelected();
+        }catch (Exception e){
+            return false;
+        }
     }
 }
