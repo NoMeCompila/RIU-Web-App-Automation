@@ -32,10 +32,8 @@ public class RiuSteps {
 
     @When("el usuario acepta las cookies")
     public void aceptarCookies() {
-        // 1. Validamos que el botón sea visible en la pantalla
         boolean isVisible = riuHome.isAcceptCookiesButtonVisible();
         Assert.assertTrue(isVisible, "El botón de aceptar cookies no está visible");
-        // 2. Validamos que esté habilitado para recibir clics (opcional, pero muy seguro)
         boolean isClickable = riuHome.isAcceptCookiesButtonClickable();
         Assert.assertTrue(isClickable, "El botón de cookies está visible pero bloqueado/no clickeable");
         riuHome.clickAcceptCookies();
@@ -45,7 +43,7 @@ public class RiuSteps {
     public void clicRegistrarse() {
         boolean accessButtonVisible = riuHome.isAccessButtonVisible();
         Assert.assertTrue(accessButtonVisible, "El boton de acceso a RIU Class no es visible");
-        boolean accessButtonClickable = riuHome.isAccessbuttonCkickable();
+        boolean accessButtonClickable = riuHome.isAccessButtonClickable();
         Assert.assertTrue(accessButtonVisible, "El boton de acceso a RIU Class no es clickeable");
         riuHome.clickRegister();
     }
@@ -103,8 +101,7 @@ public class RiuSteps {
     }
 
     @Then("se deberia mostrar la validación de campo requerido para fecha")
-    public void verificarFormulario() throws InterruptedException {
+    public void verificarFormulario() {
         Assert.assertTrue(loginModal.isReqFielVisible());
-        //Thread.sleep(3000);
     }
 }

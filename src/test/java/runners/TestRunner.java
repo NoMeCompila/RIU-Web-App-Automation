@@ -5,7 +5,6 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features = "classpath:features",
-        // AQUÍ ESTÁ LA MAGIA: Le decimos que busque en ambas carpetas
         glue = {"steps", "hooks"},
         tags = "@smoke",
         plugin = {
