@@ -87,6 +87,9 @@ Este framework fue construido desde cero aplicando patrones de diseño profesion
 * **Allure Maven Plugin:** v`2.12.0`
 * **AspectJ Weaver (`aspectjweaver`):** v`1.9.21` *(Necesario para la intercepción de eventos de Allure en Java 21)*
 
+### AI Tool
+* **Gemini** v`3.1 PRO` (para generación de documentación y sugerencia de mejoras en código)
+
 ## 🏗️ Arquitectura del Framework
 El proyecto está estructurado para ser altamente escalable y mantenible:
 * **`src/test/resources/features/`**: Contiene los archivos `.feature` escritos en lenguaje Gherkin (negocio).
