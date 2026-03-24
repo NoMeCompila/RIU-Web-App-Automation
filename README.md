@@ -8,6 +8,18 @@ El objetivo principal de este repositorio es automatizar el flujo de registro de
 
 Más allá del código, este proyecto busca destacar una filosofía clave en el aseguramiento de la calidad: **la automatización es solo una herramienta; el verdadero valor para el negocio se descubre primero a través del análisis y las pruebas manuales**. Entender el producto, diseñar los casos de prueba correctos y encontrar los flujos críticos manualmente es el paso fundamental antes de escribir la primera línea de código.
 
+## Automatización escenario: Validar campo requerido Fecha de nacimiento en registro
+```bash
+mvn clean test "-Dcucumber.filter.tags=@smoke"
+```
+https://github.com/user-attachments/assets/51ee8cbd-b89f-4aff-b4a7-b3c90420405e
+
+## Reporte Allure + Cucumber
+```bash
+mvn allure:serve
+```
+<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/bf5d7ffe-349f-48e3-88ea-daef1362f8ef" />
+
 ## 🛠️ Tecnologías y Dependencias
 Este framework fue construido desde cero aplicando patrones de diseño profesionales (Page Object Model) y desarrollo guiado por comportamiento (BDD). A continuación, el stack tecnológico detallado según el `pom.xml`:
 
@@ -41,17 +53,13 @@ El proyecto está estructurado para ser altamente escalable y mantenible:
 
 Para ejecutar la suite de pruebas desde la terminal, utiliza el siguiente comando filtrando por la etiqueta deseada (por ejemplo, `@smoke`):
 
-```bash
-mvn clean test "-Dcucumber.filter.tags=@smoke"
-```
-
-```bash
-mvn allure:serve
-```
-<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/bf5d7ffe-349f-48e3-88ea-daef1362f8ef" />
 
 
 
-https://github.com/user-attachments/assets/51ee8cbd-b89f-4aff-b4a7-b3c90420405e
+
+
+
+
+
 
 
