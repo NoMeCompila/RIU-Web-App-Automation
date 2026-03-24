@@ -49,3 +49,9 @@ mvn clean test "-Dcucumber.filter.tags=@smoke"
 mvn allure:serve
 ```
 <img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/bf5d7ffe-349f-48e3-88ea-daef1362f8ef" />
+
+
+
+https://github.com/user-attachments/assets/51ee8cbd-b89f-4aff-b4a7-b3c90420405e
+
+
