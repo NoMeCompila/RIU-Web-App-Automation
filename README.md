@@ -8,7 +8,7 @@ El objetivo principal de este repositorio es automatizar el flujo de registro de
 
 Más allá del código, este proyecto busca destacar una filosofía clave en el aseguramiento de la calidad: **la automatización es solo una herramienta; el verdadero valor para el negocio se descubre primero a través del análisis y las pruebas manuales**. Entender el producto, diseñar los casos de prueba correctos y encontrar los flujos críticos manualmente es el paso fundamental antes de escribir la primera línea de código.
 
-## Automatización escenario: Validar campo requerido Fecha de nacimiento en registro
+## ⚙ Automatización escenario: Validar campo requerido Fecha de nacimiento en registro
 ```bash
 mvn clean test "-Dcucumber.filter.tags=@smoke"
 ```
@@ -20,7 +20,8 @@ mvn allure:serve
 ```
 <img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/bf5d7ffe-349f-48e3-88ea-daef1362f8ef" />
 
-## Prueba Manual y Reporte de Bug
+## 🖐 Prueba Manual y Reporte de Bug (Se encuentra un bug de negocio/ de análisis funcional) 
+Este bug generalmente no es encontrado si solo se tiene una visión de automatización de pruebas. Aqui se ve el valor de las pruebas funcionales y análisis de requerimientos.
 # 🐛 Reporte de Bug: [Registro] Problema de usabilidad extrema en el calendario de "Fecha de nacimiento"
 
 **ID:** BUG-001
