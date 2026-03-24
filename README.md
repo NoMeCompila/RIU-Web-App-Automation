@@ -43,3 +43,9 @@ Para ejecutar la suite de pruebas desde la terminal, utiliza el siguiente comand
 
 ```bash
 mvn clean test "-Dcucumber.filter.tags=@smoke"
+```
+
+```bash
+mvn allure:serve
+```
+<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/bf5d7ffe-349f-48e3-88ea-daef1362f8ef" />
