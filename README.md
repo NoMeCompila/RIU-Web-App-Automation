@@ -61,7 +61,6 @@ Adicionalmente, existe una discrepancia lógica en la interfaz: el componente de
 * **Screenshot:** Se adjunta captura de pantalla donde se evidencia el calendario tipo "reserva" aplicado erróneamente al campo de nacimiento, mostrando los meses de Marzo/Abril 2026 y el botón "Continuar sin fechas".
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6a81bc09-f8ea-4902-9f2d-862901da7593" />
 
-* **Video:**
 https://github.com/user-attachments/assets/8b83cdb2-61e1-430d-b9b9-b2cfddae13f2
 
 
