@@ -70,4 +70,8 @@ public class BasePage {
             return false;
         }
     }
+
+    public String locatorText(By locator){
+        return getText(locator);
+    }
 }

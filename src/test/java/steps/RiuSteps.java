@@ -1,7 +1,5 @@
 package steps;
 
-import com.sun.source.tree.AssertTree;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -52,18 +50,61 @@ public class RiuSteps {
         riuHome.clickRegister();
     }
 
-    @And("completa el formulario de registro")
+    @And("completa el formulario de registro sin fechas")
     public void completaElFormularioDeRegistro() {
         loginModal = new LoginModal(context.driver);
         boolean isModalVisible = loginModal.isLoginModalVisible();
         Assert.assertTrue(isModalVisible, "El Modal de Login no es visible");
         loginModal.clickRegisterTab();
-        // Write code here that turns the phrase above into concrete actions
-        //throw new PendingException();
+
+        String registerTitle = "Regístrate gratis";
+        String actualTitle = loginModal.extractTitle();
+        Assert.assertEquals(actualTitle, registerTitle);
+
+        Assert.assertTrue(loginModal.isNameTextBoxVisible());
+        Assert.assertTrue(loginModal.isNameTextBoxClickable());
+        loginModal.typeName("Fernando");
+
+        Assert.assertTrue(loginModal.isLastNameTextBoxVisible());
+        Assert.assertTrue(loginModal.isLastNameTextBoxClickable());
+        loginModal.typeLastName("Caballero");
+
+        Assert.assertTrue(loginModal.isEmailTextBoxVisible());
+        Assert.assertTrue(loginModal.isEmailTextBoxClickable());
+        loginModal.typeEmail("test@gmail.com");
+
+        Assert.assertTrue(loginModal.isCountrySelectVisible());
+        Assert.assertTrue(loginModal.isCountrySelectClickable());
+        loginModal.clickCountrySelect();
+        Assert.assertTrue(loginModal.isArgOptVisible());
+        loginModal.selectArgentina();
+
+        loginModal.openCalendar();
+        loginModal.isNoDateBtnVisible();
+        loginModal.continueWithoutDate();
+
+        Assert.assertTrue(loginModal.isGenreSelectVisible());
+        Assert.assertTrue(loginModal.isGenreSelectClickable());
+        loginModal.clickGenreSelect();
+        loginModal.isMaleOptVisible();
+        loginModal.selectMale();
+
+        Assert.assertTrue(loginModal.isSalesRadioBtnVisible());
+        Assert.assertTrue(loginModal.isSalesRadioBtnClickable());
+        loginModal.clickSalesRadioBtn();
+
+        Assert.assertTrue(loginModal.isTermsCheckVisible());
+        Assert.assertTrue(loginModal.isTermsCheckClickable());
+        Assert.assertTrue(loginModal.isTermsUnchecked());
+        loginModal.clickTermsCheck();
+
+        loginModal.clickRegisterBtn();
+
     }
 
-    @Then("se deberia mostrar el formulario de registro")
+    @Then("se deberia mostrar la validación de campo requerido para fecha")
     public void verificarFormulario() throws InterruptedException {
-        Thread.sleep(3000);
+        Assert.assertTrue(loginModal.isReqFielVisible());
+        //Thread.sleep(3000);
     }
 }

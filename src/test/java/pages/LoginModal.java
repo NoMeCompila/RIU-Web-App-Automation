@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import utilities.BasePage;
 
 public class LoginModal extends BasePage {
@@ -18,11 +19,35 @@ public class LoginModal extends BasePage {
     private final By male = By.id("H");
     private final By salesInfoRadioBtn = By.id("controlInformationYes");
     private final By termsCheckBox = By.id("acceptConditionsCheck");
+    private final By registerBtn = By.xpath("//div[@id='dialog']//button[@type='submit']");
+    private final By reqField = By.xpath("//riu-ui-calendar[@formcontrolname='birthDate']//div[text()=' Este campo es obligatorio. ']");
+    private final By calendar = By.xpath(" //riu-ui-icon[@class='u-pointer']/i");
+    private final By noDateBtn = By.xpath("//riu-ui-button//button[@data-qa='calendar-apply-button']");
+
 
     public LoginModal(WebDriver driver){
         super(driver);
     }
 
+    public void clickRegisterBtn(){
+        click(this.registerBtn);
+    }
+
+    public void openCalendar(){
+        click(this.calendar);
+    }
+
+    public boolean isNoDateBtnVisible(){
+        return isDisplayed(this.noDateBtn);
+    }
+
+    public void continueWithoutDate(){
+        click(this.noDateBtn);
+    }
+
+    public boolean isReqFielVisible(){
+        return isDisplayed(this.reqField);
+    }
     public boolean isLoginModalVisible(){
         return isDisplayed(this.loginModal);
     }
@@ -41,6 +66,10 @@ public class LoginModal extends BasePage {
 
     public boolean isRegisterTitleVisible(){
         return isDisplayed(this.registerTitle);
+    }
+
+    public String  extractTitle(){
+        return locatorText(this.registerTitle);
     }
 
     public boolean isNameTextBoxVisible(){
@@ -123,7 +152,7 @@ public class LoginModal extends BasePage {
         return isDisplayed(this.salesInfoRadioBtn);
     }
 
-    public boolean isSalesRadioBtntClickable(){
+    public boolean isSalesRadioBtnClickable(){
         return isClickable(this.salesInfoRadioBtn);
     }
 
@@ -146,5 +175,4 @@ public class LoginModal extends BasePage {
     public boolean isTermsUnchecked(){
         return !isChecked(this.termsCheckBox);
     }
-
 }
