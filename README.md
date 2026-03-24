@@ -20,6 +20,50 @@ mvn allure:serve
 ```
 <img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/bf5d7ffe-349f-48e3-88ea-daef1362f8ef" />
 
+## Prueba Manual y Reporte de Bug
+# 🐛 Reporte de Bug: [Registro] Problema de usabilidad extrema en el calendario de "Fecha de nacimiento"
+
+**ID:** BUG-001
+**Estado:** Abierto
+**Severidad:** Alta (Afecta directamente la tasa de conversión y registro de usuarios)
+**Módulo:** Formulario de Registro (RIU Class)
+
+## 📖 Historia de Usuario (Contexto)
+> **Como** cliente potencial / usuario nuevo
+> **Quiero** poder ingresar o seleccionar mi año, mes y día de nacimiento de forma rápida y sencilla
+> **Para** poder completar mi registro en la plataforma cómodamente y sin fricciones.
+
+## 📝 Resumen del Problema
+El campo obligatorio "Fecha de nacimiento" en el formulario de registro despliega un componente de calendario inadecuado para este propósito. El calendario actual no permite la navegación directa entre años; obliga al usuario a retroceder mes a mes desde la fecha actual para llegar a su año de nacimiento. Esto hace que el registro sea virtualmente imposible (o extremadamente frustrante) para cualquier usuario. 
+
+Adicionalmente, existe una discrepancia lógica en la interfaz: el componente de calendario muestra un botón primario con el texto "Continuar sin fechas", lo cual contradice las reglas de validación del formulario, ya que el campo está marcado como obligatorio (`*`).
+
+## 👣 Pasos para reproducir
+1. Navegar a la página principal de RIU.
+2. Hacer clic en el botón de "Entrar con mi cuenta" o "Regístrate gratis".
+3. Visualizar el modal "COMPLETA EL FORMULARIO CON TUS DATOS".
+4. Hacer clic sobre el campo "Fecha de nacimiento".
+5. Observar el componente de calendario desplegado en pantalla.
+6. Intentar cambiar el año visible (ej. retroceder al año 1990).
+7. Observar los controles disponibles y el botón inferior del modal del calendario.
+
+## ✅ Comportamiento Esperado
+* **Navegación:** El componente de calendario debe permitir la navegación y selección directa de **Años**, **Meses** y **Días** (por ejemplo, mediante menús desplegables `dropdown` o vistas de selección por décadas).
+* **Coherencia de validación:** Al ser un campo requerido para el registro, el calendario no debe mostrar la opción ni el botón "Continuar sin fechas".
+
+## ❌ Comportamiento Actual
+* El usuario solo puede navegar hacia atrás o adelante dando clics **mes a mes** usando las flechas laterales. No hay selector de años.
+* Se visualiza un botón rojo de "Continuar sin fechas" incrustado en el componente de fecha de nacimiento.
+* **Se Asume que se ha reutilizado el calendario para reserva de fechas en un hotel en lugar de uno para seleccionar fecha de nacimiento.**
+
+## 📎 Evidencia Adjunta
+* **Screenshot:** Se adjunta captura de pantalla donde se evidencia el calendario tipo "reserva" aplicado erróneamente al campo de nacimiento, mostrando los meses de Marzo/Abril 2026 y el botón "Continuar sin fechas".
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6a81bc09-f8ea-4902-9f2d-862901da7593" />
+
+* **Video:**
+https://github.com/user-attachments/assets/8b83cdb2-61e1-430d-b9b9-b2cfddae13f2
+
+
 ## 🛠️ Tecnologías y Dependencias
 Este framework fue construido desde cero aplicando patrones de diseño profesionales (Page Object Model) y desarrollo guiado por comportamiento (BDD). A continuación, el stack tecnológico detallado según el `pom.xml`:
 
