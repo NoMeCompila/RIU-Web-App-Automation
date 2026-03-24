@@ -1,7 +1,7 @@
 # RIU-Web-App-Automation
 
 ## 📝 Resumen
-Pequeño proyecto diseñado para demostrar mi habilidad en la automatización de interfaces web utilizando Selenium WebDriver y Java, aplicado a una plataforma real de reservas de hoteles.
+Proyecto diseñado para demostrar mi habilidad en la automatización de interfaces web utilizando Selenium WebDriver y Java, aplicado a una plataforma real de reservas de hoteles.
 
 ## 🎯 Objetivo del Proyecto
 El objetivo principal de este repositorio es automatizar el flujo de registro de un nuevo cliente en la plataforma de RIU Hotels & Resorts, culminando en la generación de un reporte de pruebas visual y detallado. 
