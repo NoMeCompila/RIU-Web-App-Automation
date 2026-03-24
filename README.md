@@ -99,7 +99,9 @@ El proyecto está estructurado para ser altamente escalable y mantenible:
 ## 🚀 Cómo ejecutar las pruebas
 
 Para ejecutar la suite de pruebas desde la terminal, utiliza el siguiente comando filtrando por la etiqueta deseada (por ejemplo, `@smoke`):
-
+```bash
+mvn clean test "-Dcucumber.filter.tags=@smoke"
+```
 
 
 
