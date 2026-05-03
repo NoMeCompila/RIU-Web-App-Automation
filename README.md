@@ -63,6 +63,45 @@ Adicionalmente, existe una discrepancia lógica en la interfaz: el componente de
 
 https://github.com/user-attachments/assets/8b83cdb2-61e1-430d-b9b9-b2cfddae13f2
 
+# 🐞 Reporte de Bug: [News Letter] Falta de validación de formato en campo correo para suscripcion a Newsletter
+
+
+## Detalles
+
+* Estado: Activo
+* Prioridad: Media | Severidad: Media
+* Reportero: QA Automation Engineer
+
+Entorno
+* URL: https://www.riu.com/es
+* Ambiente: Producción
+* Plataforma: Web Mobile Browser
+* Tipo de Usuario: Cliente
+
+## 👣 Pasos para reproducir
+1. Navegar a la página principal de RIU.
+2. Realizar scroll hasta la sección del Footer.
+3. Localizar la sección: "Recibe todas las ofertas en tu email - Suscríbete a nuestra newsletter".
+4. Ingresar el siguiente dato en el campo de texto para correo: admin@----.com
+5. Marcar el checkbox de condiciones y privacidad.
+6. Hacer clic en el botón de enviar.
+
+## ✅ Comportamiento Esperado
+El sistema debe detectar un formato de email inválido (caracteres especiales consecutivos/inválidos en el dominio). El campo debe resaltarse en amarillo y mostrar el mensaje de error: "El email que has introducido no es correcto".
+
+## ❌ Comportamiento Actual
+El sistema permite continuar con la operación de suscripción sin disparar ninguna validación de máscara o formato, aceptando el registro.
+
+## Análisis de Causa Raíz
+
+* Falla en la Regex del Lado del Cliente (Frontend): La expresión regular (RegEx) encargada de validar el input en el navegador es demasiado permisiva o no contempla la restricción de guiones y puntos consecutivos
+* Ausencia de Validación de Tipo de Input: Es posible que el elemento < input > esté definido como type="text" en lugar de type="email", delegando toda la responsabilidad a una lógica de JavaScript.
+
+## Análisis de Riesgos
+* Degradación de la Calidad de Datos: La base de datos de marketing se llenará de "leads" basura. Si un porcentaje alto de los correos capturados son sintácticamente incorrectos, las campañas de email marketing perderán efectividad.
+
+* Reputación del Servidor (Bounce Rate): Al intentar enviar correos masivos a dominios inexistentes o mal formados, los servidores de correo (como Gmail o Outlook) aumentarán la tasa de rebote del dominio riu.com.
+
 
 ## 🛠️ Tecnologías y Dependencias
 Este framework fue construido desde cero aplicando patrones de diseño profesionales (Page Object Model) y desarrollo guiado por comportamiento (BDD). A continuación, el stack tecnológico detallado según el `pom.xml`:
