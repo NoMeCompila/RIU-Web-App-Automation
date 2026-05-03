@@ -70,7 +70,6 @@ https://github.com/user-attachments/assets/8b83cdb2-61e1-430d-b9b9-b2cfddae13f2
 
 * Estado: Activo
 * Prioridad: Media | Severidad: Media
-* Reportero: QA Automation Engineer
 
 Entorno
 * URL: https://www.riu.com/es
