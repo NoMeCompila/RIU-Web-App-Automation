@@ -102,6 +102,12 @@ El sistema permite continuar con la operación de suscripción sin disparar ning
 
 * Reputación del Servidor (Bounce Rate): Al intentar enviar correos masivos a dominios inexistentes o mal formados, los servidores de correo (como Gmail o Outlook) aumentarán la tasa de rebote del dominio riu.com.
 
+## Evidencia
+
+
+https://github.com/user-attachments/assets/21d8a105-7c2d-4d2a-9ea1-768cd9966d7d
+
+
 
 ## 🛠️ Tecnologías y Dependencias
 Este framework fue construido desde cero aplicando patrones de diseño profesionales (Page Object Model) y desarrollo guiado por comportamiento (BDD). A continuación, el stack tecnológico detallado según el `pom.xml`:
